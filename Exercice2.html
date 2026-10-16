@@ -1,0 +1,83 @@
+<html>
+<head>
+      <title>Composer votre menu</title>
+      <style>
+        .parent{
+            display: flex;
+            justify-content: center;
+            align-items:center;
+    
+        }
+        .div-input{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+        #prix{
+            background-color: white;
+            display: flex;
+            width: 400px;
+            height:150px;
+            border: 1px solid black;
+            padding: 10px;
+        }
+        </style>
+</head>
+<body>
+    <div class="parent">
+        <div class="div-input">
+        <table>
+        <thead>
+            <tr>
+                 <th>Entree</th>
+                 <th>Plat Principal</th>
+                 <th>Dessert</th> 
+            </tr> 
+        </thead>
+            <tr>
+             <td>
+                <select id="Entree">
+                    <option value="18">paté en croute </option>
+                    <option value="15">soupe</option>
+                    <option value="12">Salade</option>
+                </select>    
+             </td>
+             <td>
+                <select id="Plat_Principal">
+                    <option value="75">poulet</option>
+                    <option value="80">Steak frites</option>
+                    <option value="30">poisson</option>
+                </select>
+             </td>
+             <td>
+                <select id="Dessert">
+                    <option value="17">glace</option>
+                    <option value="20">tarte aux pommes</option>
+                    <option value="14">Café Gourmand</option>
+                </select>
+             </td>
+          </tr>
+          </table>
+        <button type="button" onclick="calculer()" class="btn btn-primary">calculer</button>
+        <div id="prix"></div>
+        </div> 
+    </div>
+   
+    <script>
+        function calculer(){
+            let dessert=document.getElementById('Dessert').value;
+            let plat_principal=document.getElementById('Plat_Principal').value;
+            let entree=document.getElementById('Entree').value;
+            let total=parseFloat(dessert)+parseFloat(plat_principal)+parseFloat(entree);
+            document.getElementById('prix').innerHTML=
+            "le prix total est : "+"<br>"+
+            "Entree : "+entree+"<br>"+
+            "Plat Principal : "+plat_principal+"<br>"+
+            "Dessert : "+dessert+"<br>"+
+            "Total : "+total.toFixed(2);
+            console.log(total);
+        }
+    </script>
+</body>
+</html>
